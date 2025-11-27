@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Color Scheme Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header>
+      <input type="color" id="color-input" class="color-input"/>
+      <select id="scheme-dropdown" class="dropdown">
+        <option value="monochromatic">Monochromatic</option>
+        <option value="analogous">Analogous</option>
+        <option value="complementary">Complementary</option>
+        <option value="triadic">Triadic</option>
+        <option value="tetradic">Tetradic</option>
+      </select>
+      <button id="get-scheme-btn" class="btn primary" >Get color scheme</button>
+    </header>
+    <main>
+      <section class="panel color-scheme-panel" aria-labelledby="color-scheme-heading">
+        <ul id="color-scheme-list"></ul>
+      </section>
+    </main>
