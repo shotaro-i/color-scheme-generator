@@ -10,15 +10,20 @@
   <body>
     <div class="app-container">
       <header>
-        <input type="color" id="seed-color-input" class="seed-color-input" />
+        <input
+          type="color"
+          id="seed-color-input"
+          class="seed-color-input"
+          value="#6366f1"
+        />
         <select id="scheme-dropdown" class="dropdown">
           <option value="monochrome">Monochrome</option>
           <option value="monochrome-dark">Monochrome-dark</option>
           <option value="monochrome-light">Monochrome-light</option>
           <option value="analogic">Analogic</option>
           <option value="complement">Complement</option>
-          <option value="Analogic-complement">Analogic-complement</option>
-          <option value="triad">Triad</option>
+          <option value="analogic-complement">Analogic-complement</option>
+          <option value="triad" selected>Triad</option>
         </select>
         <button id="get-scheme-btn" class="btn primary">
           Get color scheme
@@ -34,6 +39,14 @@
       </main>
     </div>
     <!-- toast -->
-    <aside id="toast" class="toast" role="status" aria-live="polite" aria-hidden="true">toast</aside>
+    <aside
+      id="toast"
+      class="toast"
+      role="status"
+      aria-live="polite"
+      aria-hidden="true"
+    >
+      toast
+    </aside>
   </body>
 </html>
