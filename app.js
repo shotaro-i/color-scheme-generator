@@ -24,7 +24,6 @@ const schemeDropdown = document.getElementById("scheme-dropdown");
 const getSchemeBtn = document.getElementById("get-scheme-btn");
 const schemeColorsList = document.getElementById("scheme-colors-list");
 
-
 // add event listener to button
 getSchemeBtn.addEventListener("click", fetchColorScheme);
 
@@ -66,9 +65,8 @@ function fetchColorScheme() {
     });
 }
 
-
 // init fetch
-const initColor = "000000";
+const initColor = "6366f1"; // indigo-500
 const initScheme = "monochrome";
 
 fetch(
@@ -94,7 +92,7 @@ fetch(
             console.error("Failed to copy color: ", err);
           });
       });
-        schemeColorsList.appendChild(listItem);
+      schemeColorsList.appendChild(listItem);
     });
   })
   .catch((error) => {
