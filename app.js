@@ -119,6 +119,7 @@ function fetchColorScheme() {
 function initColorScheme() {
   const initColor = "6366f1"; // indigo-500
   const initScheme = "triad";
+  seedColorInput.value = `#${initColor}`;  
 
   fetchScheme({ hex: initColor, mode: initScheme })
     .then(renderColors)

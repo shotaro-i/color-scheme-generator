@@ -10,13 +10,21 @@
   <body>
     <div class="app-container">
       <header class="app-header">
+        <label for="seed-color-input" class="visually-hidden">Seed Color</label>
         <input
           type="color"
           id="seed-color-input"
           class="seed-color-input"
-          value="#6366f1"
+          aria-label="Choose seed color"
         />
-        <select id="scheme-dropdown" class="dropdown">
+        <label for="scheme-dropdown" class="visually-hidden"
+          >Color Scheme Type</label
+        >
+        <select
+          id="scheme-dropdown"
+          class="dropdown"
+          aria-label="Select color scheme type"
+        >
           <option value="monochrome">Monochrome</option>
           <option value="monochrome-dark">Monochrome-dark</option>
           <option value="monochrome-light">Monochrome-light</option>
@@ -25,14 +33,18 @@
           <option value="analogic-complement">Analogic-complement</option>
           <option value="triad" selected>Triad</option>
         </select>
-        <button id="get-scheme-btn" class="btn primary">
+        <button
+          id="get-scheme-btn"
+          class="btn primary"
+          aria-label="Generate color scheme"
+        >
           Get color scheme
         </button>
       </header>
       <main>
         <section
           class="panel scheme-colors-panel"
-          aria-labelledby="scheme-colors-heading"
+
         >
           <ul id="scheme-colors-list" class="scheme-colors-list"></ul>
         </section>
