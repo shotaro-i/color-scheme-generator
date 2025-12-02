@@ -17,12 +17,37 @@
 //    - APIから取得したカラースキームをDOMに反映する
 //    - クリックイベントでカラーコードをクリップボードにコピーする
 //   -  カラーコードをコピーしたときにトーストで通知する
+// ローカルストレージにinputの値とドロップダウンの値をヘッダーのbtnで保存する
+// 最初の読み込み時にローカルストレージに保存された値があればそれを使用し、なければデフォルト値を使用する
 
 // grab DOM elements
 const seedColorInput = document.getElementById("seed-color-input");
 const schemeDropdown = document.getElementById("scheme-dropdown");
 const getSchemeBtn = document.getElementById("get-scheme-btn");
 const schemeColorsList = document.getElementById("scheme-colors-list");
+
+const CONFIG = {
+  DEFAULT_SEED_COLOR: "6366f1",
+  DEFAULT_SCHEME: "triad",
+  STORAGE_KEYS: {
+    SEED_COLOR: "seedColor",
+    SCHEME: "colorScheme",
+  },
+};
+
+function saveSettingsToLocalStorage(seedColor, scheme) {
+  localStorage.setItem(CONFIG.STORAGE_KEYS.SEED_COLOR, seedColor);
+  localStorage.setItem(CONFIG.STORAGE_KEYS.SCHEME, scheme);
+}
+
+function getSettingsFromLocalStorage() {
+  const seedColor =
+    localStorage.getItem(CONFIG.STORAGE_KEYS.SEED_COLOR) ||
+    CONFIG.DEFAULT_SEED_COLOR;
+  const scheme =
+    localStorage.getItem(CONFIG.STORAGE_KEYS.SCHEME) || CONFIG.DEFAULT_SCHEME;
+  return { seedColor, scheme };
+}
 
 // add event listener to button
 if (getSchemeBtn) {
@@ -31,7 +56,7 @@ if (getSchemeBtn) {
 
 // init fetch
 if (schemeColorsList) {
-  initColorScheme();
+  initApp();
 }
 
 /**
@@ -109,19 +134,21 @@ function handleFetchError(error) {
 function fetchColorScheme() {
   const seedColor = seedColorInput.value.slice(1);
   const schemeMode = schemeDropdown.value;
-
+  saveSettingsToLocalStorage(seedColor, schemeMode);
   fetchScheme({ hex: seedColor, mode: schemeMode })
     .then(renderColors)
     .catch(handleFetchError);
 }
 
 // Fetch initial scheme on load
-function initColorScheme() {
-  const DEFAULT_SEED_COLOR = "6366f1"; // indigo-500
-  const DEFAULT_SCHEME = "triad";
-  seedColorInput.value = `#${DEFAULT_SEED_COLOR}`;  
-
-  fetchScheme({ hex: DEFAULT_SEED_COLOR, mode: DEFAULT_SCHEME })
+function initApp() {
+  const { seedColor, scheme } = getSettingsFromLocalStorage();
+  const exist = Array.from(schemeDropdown.options).some(
+    (o) => o.value === scheme
+  );
+  schemeDropdown.value = exist ? scheme : CONFIG.DEFAULT_SCHEME;
+  seedColorInput.value = `#${seedColor}`;
+  fetchScheme({ hex: seedColor, mode: scheme })
     .then(renderColors)
     .catch(handleFetchError);
 }
