@@ -151,7 +151,7 @@ function handleFetchError(error) {
   }
   console.error("Error fetching color data:", error);
   if (error.message && !error.message.includes("Failed to fetch")) {
-    alert("Failed to fetch color scheme. Please try again.");
+    showToast("Failed to fetch color scheme. Please try again.", null);
   }
 }
 

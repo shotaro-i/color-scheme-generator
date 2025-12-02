@@ -36,13 +36,18 @@ body {
 }
 
 .color-scheme__form {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.color-scheme__form fieldset {
+  border: none;
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 16px;
   padding: 24px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
 }
 
 .color-scheme__input {
@@ -287,7 +292,7 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   body {
     padding: 12px;
   }
@@ -296,7 +301,7 @@ body {
     border-radius: 12px;
   }
 
-  .color-scheme__form {
+  .color-scheme__form fieldset {
     flex-wrap: wrap;
     padding: 16px;
     gap: 12px;
@@ -350,7 +355,7 @@ body {
     border-radius: 8px;
   }
 
-  .color-scheme__form {
+  .color-scheme__form fieldset {
     padding: 12px;
     gap: 10px;
   }
