@@ -23,8 +23,9 @@
 // grab DOM elements
 const seedColorInput = document.getElementById("seed-color-input");
 const schemeDropdown = document.getElementById("scheme-dropdown");
-const getSchemeBtn = document.getElementById("get-scheme-btn");
 const schemeColorsList = document.getElementById("scheme-colors-list");
+const form = document.getElementById("color-scheme-form");
+
 
 const CONFIG = {
   DEFAULT_SEED_COLOR: "6366f1",
@@ -53,9 +54,12 @@ function getSettingsFromLocalStorage() {
   return { seedColor, scheme };
 }
 
-// add event listener to button
-if (getSchemeBtn) {
-  getSchemeBtn.addEventListener("click", fetchColorScheme);
+
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    fetchColorScheme();
+  });
 }
 
 // init fetch

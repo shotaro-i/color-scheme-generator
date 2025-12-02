@@ -3,27 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     <meta name="description" content="Generate not beautiful color schemes with ease">
     <title>Color Scheme Generator</title>
     <link rel="stylesheet" href="styles.css" />
     <script defer src="app.js"></script>
   </head>
   <body>
+
     <main class="color-scheme">
-      <form class="color-scheme__form">
+      <h1 class="visually-hidden">Color Scheme Generator</h1>
+      <form id="color-scheme-form" class="color-scheme__form">
         <label for="seed-color-input" class="visually-hidden">Seed Color</label>
-        <input
-          type="color"
-          id="seed-color-input"
-          class="color-scheme__input"
-        />
+        <input type="color" id="seed-color-input" class="color-scheme__input" />
         <label for="scheme-dropdown" class="visually-hidden"
           >Color Scheme Type</label
         >
-        <select
-          id="scheme-dropdown"
-          class="color-scheme__select"
-          aria-label="Select color scheme type"
-        >
+        <select id="scheme-dropdown" class="color-scheme__select">
           <option value="monochrome">Monochrome</option>
           <option value="monochrome-dark">Monochrome-dark</option>
           <option value="monochrome-light">Monochrome-light</option>
@@ -32,16 +27,14 @@
           <option value="analogic-complement">Analogic-complement</option>
           <option value="triad" selected>Triad</option>
         </select>
-        <button
-          id="get-scheme-btn"
-          class="color-scheme__button"
-          aria-label="Generate color scheme"
-          type="button"
-        >
+        <button class="color-scheme__button" type="submit">
           Get color scheme
         </button>
       </form>
-      <section class="color-scheme__results" aria-label="Generated color palette" >
+      <section
+        class="color-scheme__results"
+        aria-label="Generated color palette"
+      >
         <ul id="scheme-colors-list" class="color-scheme__list"></ul>
       </section>
     </main>
