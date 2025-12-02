@@ -70,8 +70,8 @@ body {
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
+  background-color: #111111;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   padding: 10px 20px;
   font-size: 14px;
@@ -80,16 +80,18 @@ body {
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .btn.primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  background-color: #222222;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 }
 
 .btn.primary:active {
   transform: translateY(0);
+  background-color: #000000;
 }
 
 .scheme-colors-panel {
@@ -228,11 +230,19 @@ body {
   }
 
   .btn.primary {
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    background-color: #e8e8e8;
+    color: #111111;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 
   .btn.primary:hover {
-    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
+    background-color: #f2f2f2;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn.primary:active {
+    background-color: #d8d8d8;
   }
 
   .color-code {
