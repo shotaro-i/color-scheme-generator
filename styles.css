@@ -136,6 +136,59 @@ body {
   background-color: #ffffff;
 }
 
+/*  toast */
+.toast {
+  --x: 0; /* desktop horizontal translation */
+  opacity: 0;
+  min-width: 250px;
+  text-align: center;
+  border-radius: 16px;
+  padding: 14px 20px;
+  position: fixed;
+  z-index: 999;
+  right: 16px;
+  bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+  transform: translateX(var(--x)) translateY(8px);
+  background-color: #f5f6f7;
+  color: #1a1a1a;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.toast.show {
+  opacity: 1;
+  /* forwardsがあるとopacity0を維持できてjs側でshow classを取り除くタイミングを柔軟にできる */
+  -webkit-animation: fadein 0.4s ease, fadeout 0.4s ease 2.4s forwards;
+  animation: fadein 0.4s ease, fadeout 0.4s ease 2.4s forwards;
+  transform: translateX(var(--x)) translateY(0);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    /* transformは指定した軸以外はdefaultに上書きされるからX軸も指定する */
+    transform: translateX(var(--x)) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(var(--x)) translateY(0);
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+    transform: translateX(var(--x)) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(var(--x)) translateY(8px);
+  }
+}
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   body {
@@ -186,57 +239,11 @@ body {
     background-color: #1a1a1a;
     color: #e5e5e5;
   }
-}
-
-/* Copy toast */
-.toast {
-  --x: 0; /* desktop horizontal translation */
-  opacity: 0;
-  min-width: 250px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #ffffff;
-  text-align: center;
-  border-radius: 16px;
-  padding: 14px 20px;
-  position: fixed;
-  z-index: 999;
-  right: 16px;
-  bottom: 16px;
-  font-size: 14px;
-  font-weight: 600;
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
-  pointer-events: none;
-  transform: translateX(var(--x)) translateY(8px);
-}
-
-.toast.show {
-  opacity: 1;
-  /* forwardsがあるとopacity0を維持できてjs側でshow classを取り除くタイミングを柔軟にできる */
-  -webkit-animation: fadein 0.4s ease, fadeout 0.4s ease 2.4s forwards;
-  animation: fadein 0.4s ease, fadeout 0.4s ease 2.4s forwards;
-  transform: translateX(var(--x)) translateY(0);
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-    /* transformは指定した軸以外はdefaultに上書きされるからX軸も指定する */
-    transform: translateX(var(--x)) translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(var(--x)) translateY(0);
-  }
-}
-
-@keyframes fadeout {
-  from {
-    opacity: 1;
-    transform: translateX(var(--x)) translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(var(--x)) translateY(8px);
+  .toast {
+    background-color: #2a2a2a;
+    color: #eaeaea;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   }
 }
 
