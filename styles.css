@@ -14,12 +14,6 @@
   --spacing-5: 20px; /* 20px - button padding horizontal */
   --spacing-6: 24px; /* 24px - section padding */
 
-  /* alias for backward compatibility */
-  --spacing-xs: var(--spacing-1);
-  --spacing-sm: var(--spacing-2);
-  --spacing-md: var(--spacing-4);
-  --spacing-lg: var(--spacing-6);
-
   /* border widths */
   --border-width: 1px;
 
@@ -134,7 +128,7 @@ body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   margin: 0;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-4);
   background-color: var(--color-bg-light);
   display: grid;
   place-items: center;
@@ -160,8 +154,8 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-lg);
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
 }
 
 .color-scheme__input {
@@ -170,7 +164,7 @@ body {
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-lg);
   cursor: pointer;
-  padding: var(--spacing-xs);
+  padding: var(--spacing-1);
   transition: all var(--ease-fast);
 }
 
@@ -263,7 +257,7 @@ body {
 .color-scheme__code {
   display: grid;
   place-items: center;
-  padding: var(--spacing-3_5) var(--spacing-sm);
+  padding: var(--spacing-3_5) var(--spacing-2);
   font-size: var(--text-md);
   font-weight: var(--font-weight-semibold);
   letter-spacing: var(--letter-spacing-base);
@@ -277,18 +271,18 @@ body {
   opacity: var(--opacity-hidden);
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-2);
   text-align: left;
   border-radius: var(--radius-lg);
   padding: var(--spacing-3_5) var(--spacing-5);
   position: fixed;
   z-index: var(--z-toast);
-  right: var(--spacing-md);
-  bottom: var(--spacing-md);
+  right: var(--spacing-4);
+  bottom: var(--spacing-4);
   font-size: var(--text-lg);
   font-weight: var(--font-weight-semibold);
   pointer-events: none;
-  transform: translateX(var(--x)) translateY(var(--spacing-sm));
+  transform: translateX(var(--x)) translateY(var(--spacing-2));
   background-color: var(--color-bg-toast);
   color: var(--color-text-primary);
   border: var(--border-width) solid var(--color-border-toast);
@@ -316,7 +310,7 @@ body {
   from {
     opacity: var(--opacity-hidden);
     /* transformは指定した軸以外はdefaultに上書きされるからX軸も指定する */
-    transform: translateX(var(--x)) translateY(var(--spacing-sm));
+    transform: translateX(var(--x)) translateY(var(--spacing-2));
   }
   to {
     opacity: var(--opacity-visible);
@@ -331,7 +325,7 @@ body {
   }
   to {
     opacity: var(--opacity-hidden);
-    transform: translateX(var(--x)) translateY(var(--spacing-sm));
+    transform: translateX(var(--x)) translateY(var(--spacing-2));
   }
 }
 
@@ -462,7 +456,7 @@ body {
 
 @media (max-width: 480px) {
   body {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-2);
   }
 
   .color-scheme {
@@ -480,7 +474,7 @@ body {
   }
 
   .color-scheme__button {
-    padding: var(--spacing-sm) var(--spacing-4);
+    padding: var(--spacing-2) var(--spacing-4);
     font-size: var(--text-md);
   }
 
@@ -511,7 +505,7 @@ body {
 
   .color-scheme__select {
     font-size: var(--text-md);
-    padding: var(--spacing-sm) var(--spacing-3);
+    padding: var(--spacing-2) var(--spacing-3);
   }
 
   .color-scheme__code {
