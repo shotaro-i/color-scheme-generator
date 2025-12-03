@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-/* Design tokens: common magic numbers centralized */
+/* Design tokens: common magic numbers (more than second times used) centralized */
 :root {
   /* spacing - 4px grid system */
   --spacing-1: 4px; /* 4px */
