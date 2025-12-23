@@ -11,23 +11,6 @@
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>"
     />
-    <meta property="og:title" content="Color Scheme Generator" />
-    <meta
-      property="og:description"
-      content="Generate beautiful color schemes with ease"
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      name="theme-color"
-      content="#667eea"
-      media="(prefers-color-scheme: light)"
-    />
-    <meta
-      name="theme-color"
-      content="#1a1a1a"
-      media="(prefers-color-scheme: dark)"
-    />
-    <meta name="twitter:card" content="summary" />
     <title>Color Scheme Generator</title>
     <link rel="stylesheet" href="styles.css" />
     <script defer src="app.js"></script>
@@ -97,6 +80,14 @@
         <ul id="scheme-colors-list" class="color-scheme__list"></ul>
       </section>
     </main>
+    <footer class="site-footer">
+      <div class="site-footer__links">
+        <p>&copy; 2025 color-scheme-generator</p>
+        <a href="https://www.thecolorapi.com/" target="_blank" rel="noopener noreferrer">Powered by TheColorAPI</a>
+        |
+        <a href="https://github.com/shotaro-dev/color-scheme-generator" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository in a new tab">GitHub</a>
+      </div>
+    </footer>
     <!-- toast -->
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
   </body>
