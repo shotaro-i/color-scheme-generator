@@ -335,7 +335,7 @@ body {
   padding: var(--spacing-4) 0;
   text-align: center;
   font-size: var(--text-md);
-  color: var(--text-lg, #444);
+  color: var(--color-text-primary);
   background: none;
 }
 .site-footer__links {
